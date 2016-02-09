@@ -1,0 +1,39 @@
+{
+  "name": "nodejs-ci-ctl",
+  "version": "1.0.0",
+  "description": "Control nodejs jenkins jobs",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint bin/*.js lib/*.js test/*.js",
+    "test": "npm run lint && npm run tap",
+    "tap": "tap test/*.js --cov"
+  },
+  "dependencies": {
+    "archy": "~1.0.0",
+    "chalk": "~1.1.1",
+    "columnify": "~1.5.4",
+    "ghauth": "~3.2.0",
+    "help": "~2.1.2",
+    "ms": "~0.7.1",
+    "noptd": "~2.0.0",
+    "parse-ms": "~1.0.0",
+    "request": "~2.69.0"
+  },
+  "devDependencies": {
+    "eslint": "~1.10.3",
+    "tap": "~5.0.0"
+  },
+  "license": "MIT",
+  "bin": {
+    "nodejs-ci-ctl": "./bin/cmd.js"
+  },
+  "author": "Evan Lucas <evanlucas@me.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evanlucas/nodejs-ci-ctl"
+  },
+  "homepage": "https://github.com/evanlucas/nodejs-ci-ctl",
+  "bugs": {
+    "url": "https://github.com/evanlucas/nodejs-ci-ctl/issues"
+  }
+}

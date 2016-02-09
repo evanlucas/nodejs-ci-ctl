@@ -1,0 +1,11 @@
+nodejs-ci-ctl - Control nodejs jenkins jobs
+
+  usage: nodejs-ci-ctl [options] [command]
+
+  options:
+    -h, --help                    show help and usage
+    -v, --version                 show version
+    -d, --depth <depth>           increase detailed output
+
+  commands:
+    fetch <id>                fetches the CI run for the given _id_
