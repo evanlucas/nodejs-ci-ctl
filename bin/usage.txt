@@ -5,7 +5,11 @@ nodejs-ci-ctl - Control nodejs jenkins jobs
   options:
     -h, --help                    show help and usage
     -v, --version                 show version
-    -d, --depth <depth>           increase detailed output
+    -d, --depth <depth>           increase detailed output (defaults to 5)
+                                  The higher the number, the more detailed the
+                                  output, but the longer it takes
 
   commands:
-    fetch <id>                fetches the CI run for the given _id_
+    fetch <id>                    fetches the CI run for the given _id_
+                                  To show fanned build details, use _--depth 7_
+    submit                        interactively submit a new CI build
