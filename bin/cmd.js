@@ -7,7 +7,11 @@ const ghauth = require('ghauth')
 const ctl = require('../')
 const pkg = require('../package')
 const nopt = require('noptd')
+const inquirer = require('inquirer')
+const questions = require('./questions')
+
 const NodeTestPR = ctl.NodeTestPR
+const submitBuild = ctl.submitBuild
 
 const knownOpts = {
   help: Boolean
@@ -55,18 +59,46 @@ const authOpts = {
 
 ghauth(authOpts, (err, authData) => {
   if (err) throw err
-  if (cmd === 'fetch') {
-    const id = args.shift()
-    if (!id) {
-      console.error('Missing id')
+  switch (cmd) {
+    case 'fetch':
+      const id = args.shift()
+      return fetch(id, authData)
+    case 'submit':
+      return submit(authData)
+    default:
+      console.error('Invalid command')
       return help(1)
-    }
-
-    NodeTestPR.print({
-      id: id
-    , depth: parsed.depth
-    , user: authData.user
-    , token: authData.token
-    })
   }
 })
+
+function fetch(id, authData) {
+  if (!id) {
+    console.error('Missing id')
+    return help(1)
+  }
+
+  NodeTestPR.print({
+    id: id
+  , depth: parsed.depth
+  , user: authData.user
+  , token: authData.token
+  })
+}
+
+function submit(authData) {
+  inquirer.prompt(questions.submit, (answers) => {
+    const job = answers.job
+    delete answers.job
+    submitBuild(job, answers, authData, (err, queueUrl) => {
+      if (err) throw err
+
+      if (job === 'node-test-pull-request') {
+        setTimeout(() => {
+          fetch('lastBuild', authData)
+        }, 5000)
+      } else {
+        console.log('Successfully submitted build')
+      }
+    })
+  })
+}
