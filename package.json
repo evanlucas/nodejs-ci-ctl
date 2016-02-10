@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint bin/*.js lib/*.js test/*.js",
-    "test": "npm run lint && npm run tap",
-    "tap": "tap test/*.js --cov"
+    "pretest": "npm run lint",
+    "test": "tap test/*.js --cov"
   },
   "dependencies": {
     "archy": "~1.0.0",
