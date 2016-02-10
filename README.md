@@ -5,6 +5,11 @@
 
 Control nodejs jenkins jobs
 
+## TODO
+
+- add ability to submit job without using interactive prompts
+- add ability to fetch builds other than node-test-pull-request
+
 ## Install
 
 ```bash
