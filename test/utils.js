@@ -7,9 +7,12 @@ const chalk = require('chalk')
 test('getBuildUrl', (t) => {
   const id = 1234
   const d = 3
-  const out = utils.getBuildUrl(id, d)
+  const out = utils.getBuildUrl(id, 'node-test-pull-request', d)
   const u = utils.ciURL
   t.equal(out, `${u}/job/node-test-pull-request/1234/api/json?depth=3`)
+
+  const out2 = utils.getBuildUrl(id)
+  t.equal(out2, `${u}/job/node-test-pull-request/1234/api/json?depth=5`)
   t.end()
 })
 
