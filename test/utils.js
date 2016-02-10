@@ -83,6 +83,12 @@ test('formatType', (t) => {
   t.equal(utils.formatType('UNSTABLE'), chalk.yellow('UNSTABLE'))
   t.equal(utils.formatType('UNSTABLE', 'a'), chalk.yellow('a'))
 
+  t.equal(utils.formatType('ABORTED'), chalk.inverse('ABORTED'))
+  t.equal(utils.formatType('ABORTED', 'a'), chalk.inverse('a'))
+
+  t.equal(utils.formatType('BUILDING'), chalk.bold.magenta('BUILDING'))
+  t.equal(utils.formatType('BUILDING', 'a'), chalk.bold.magenta('a'))
+
   t.equal(utils.formatType('biscuits'), 'biscuits')
   t.equal(utils.formatType('biscuits', 'a'), 'a')
   t.end()
