@@ -20,7 +20,8 @@
     "ms": "~0.7.1",
     "noptd": "~2.0.0",
     "parse-ms": "~1.0.0",
-    "request": "~2.69.0"
+    "request": "~2.69.0",
+    "tap-parser": "~1.2.2"
   },
   "devDependencies": {
     "eslint": "~1.10.3",
