@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "archy": "~1.0.0",
+    "async": "~1.5.2",
     "chalk": "~1.1.1",
     "columnify": "~1.5.4",
     "ghauth": "~3.2.0",
