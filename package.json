@@ -16,6 +16,7 @@
     "ghauth": "~3.2.0",
     "help": "~2.1.2",
     "inquirer": "~0.12.0",
+    "jenkins-actions": "~1.0.0",
     "ms": "~0.7.1",
     "noptd": "~2.0.0",
     "parse-ms": "~1.0.0",
