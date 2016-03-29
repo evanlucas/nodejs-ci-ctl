@@ -67,6 +67,11 @@ exports.submit = {
     , message: 'Branch on which to rebase'
     , choices: nodeTestPRRebaseList
     }
+  , { type: 'confirm'
+    , name: 'CERTIFY_SAFE'
+    , message: 'Is this safe?'
+    , default: false
+    }
   ]
 , citgm: [
     { type: 'input'

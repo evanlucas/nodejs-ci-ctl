@@ -125,6 +125,10 @@ function submit(authData) {
     if (job === 'citgm') {
       job = 'thealphanerd-tap-smoker'
     }
+    if (job === 'node-test-pull-request' && !answers.CERTIFY_SAFE) {
+      console.error('Please explicitly mark CERTIFY_SAFE as true')
+      process.exit(1)
+    }
     submitBuild(job, answers, authData, (err, queueUrl) => {
       if (err) throw err
 
