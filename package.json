@@ -1,6 +1,6 @@
 {
   "name": "nodejs-ci-ctl",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Control nodejs jenkins jobs",
   "main": "index.js",
   "scripts": {
