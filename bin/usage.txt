@@ -9,6 +9,7 @@ nodejs-ci-ctl - Control nodejs jenkins jobs
                                   The higher the number, the more detailed the
                                   output, but the longer it takes
     -j, --job <type>              The job type for use with the _submit_ command
+    -u, --url <url>               Set the base url for requests
 
   commands:
     fetch <id>                    fetches the CI run for the given _id_

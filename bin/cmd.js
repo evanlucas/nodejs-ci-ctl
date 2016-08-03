@@ -9,6 +9,7 @@ const pkg = require('../package')
 const nopt = require('noptd')
 const inquirer = require('inquirer')
 const questions = require('./questions')
+const utils = require('../lib/utils')
 
 const BuildResults = ctl.BuildResults
 const submitBuild = ctl.submitBuild
@@ -22,6 +23,7 @@ const knownOpts = {
 , org: String
 , repo: String
 , pr: Number
+, url: String
 }
 
 const shortHand = {
@@ -33,6 +35,7 @@ const shortHand = {
 , r: ['--repo']
 , p: ['--pr']
 , R: ['--rebase']
+, u: ['--url']
 }
 
 const defs = {
@@ -49,6 +52,10 @@ if (parsed.help) {
 if (parsed.version) {
   console.log('nodejs-ci-ctl', `v${pkg.version}`)
   return
+}
+
+if (parsed.url) {
+  utils.ciURL = parsed.url
 }
 
 const args = parsed.argv.remain
